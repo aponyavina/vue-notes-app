@@ -5,9 +5,9 @@
       <section>
         <div class="container">
           <h1> {{ title }} </h1>
-          <div class="message" v-if="message">
-              <p> {{message}} </p>
-          </div>
+
+          <Message v-if="message" :message="message"/>
+
           <!-- new note -->
           <div class="new-note">
               <input type="text" v-model="note.title">
@@ -34,8 +34,12 @@
 </template>
 
 <script>
+import Message from './components/Message.vue'
 
 export default {
+  components: {
+    Message
+  },
   data() {
     return {
       title: 'Notes App',
